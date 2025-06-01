@@ -176,6 +176,7 @@
     <input type="text" id="username" placeholder="Username" autocomplete="off" />
     <input type="password" id="password" placeholder="Password" autocomplete="off" />
     <button onclick="login()">Login</button>
+    <div id="error-msg" style="color: hotpink; margin-top: 10px; font-weight: 600;"></div>
   </div>
 
   <div id="wishes-box">
@@ -220,13 +221,16 @@ Anyway, have fun.
     function login() {
       const user = document.getElementById("username").value.trim().toLowerCase();
       const pass = document.getElementById("password").value.trim();
+      const errorDiv = document.getElementById("error-msg");
+
       if (user === "ishan" && pass === "ishaanisgay") {
+        errorDiv.innerText = "";
         document.getElementById("login-box").style.display = "none";
         document.getElementById("wishes-box").style.display = "flex";
         typeOut(message);
         showHearts();
       } else {
-        alert(insults[Math.floor(Math.random() * insults.length)]);
+        errorDiv.innerText = "retard, doesnt even know his own name.";
       }
     }
 
